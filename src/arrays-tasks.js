@@ -215,7 +215,10 @@ function getHead(arr, n) {
  *    getTail([ 'a', 'b', 'c', 'd'], 0) => []
  */
 function getTail(arr, n) {
-  return arr.splice(-n);
+  if (n !== 0) {
+    return arr.slice(-n);
+  }
+  return [];
 }
 
 /**
