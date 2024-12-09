@@ -475,8 +475,14 @@ function getIndicesOfOddNumbers(numbers) {
  *    getHexRGBValues([ 0, 255, 16777215]) => [ '#000000', '#0000FF', '#FFFFFF' ]
  *    getHexRGBValues([]) => []
  */
-function getHexRGBValues(/* arr */) {
-  throw new Error('Not implemented');
+function getHexRGBValues(arr) {
+  if (!arr.length) return [];
+  return arr.map((item) => {
+    const color = item.toString(16).toUpperCase();
+    const repeat = 6 - color.length;
+
+    return color.length === 6 ? `#${color}` : `#${'0'.repeat(repeat)}${color}`;
+  });
 }
 
 /**
